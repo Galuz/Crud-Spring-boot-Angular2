@@ -1,18 +1,22 @@
-angular.module('myApp').factory('myService', ['$http', '$q', function($http, $q){
- 
-   var REST_URI = 'http://localhost:8080/users/';
- 
-    var factory = {
-        fetchAllUsers: fetchAllUsers,
-        createUser: createUser,
-        updateUser:updateUser,
-        deleteUser:deleteUser
-    };
- 
-    return factory;
- 
-    function fetchAllUsers() {
-        var deferred = $q.defer();
+import {Observable} from "RxJS/Rx";
+import {Injectable} from 'angular2/core';
+import { Http } from '@angular/http';
+
+@Injectable() export class myService {
+
+    static REST_URI = 'http://localhost:9090/users/';
+
+      factory = {
+       fetchAllUsers: fetchAllUsers,
+       createUser: createUser,
+       updateUser:updateUser,
+       deleteUser:deleteUser
+   };
+
+   return factory;
+
+   function fetchAllUsers() {
+        deferred = $q.defer();
         $http.get(REST_URI)
             .then(
             function (response) {
@@ -25,7 +29,7 @@ angular.module('myApp').factory('myService', ['$http', '$q', function($http, $q)
         );
         return deferred.promise;
     }
- 
+
     function createUser(user) {
         var deferred = $q.defer();
         $http.post(REST_URI, user)
@@ -40,8 +44,7 @@ angular.module('myApp').factory('myService', ['$http', '$q', function($http, $q)
         );
         return deferred.promise;
     }
- 
- 
+
     function updateUser(user, id) {
         var deferred = $q.defer();
         $http.put(REST_URI+id, user)
@@ -56,7 +59,7 @@ angular.module('myApp').factory('myService', ['$http', '$q', function($http, $q)
         );
         return deferred.promise;
     }
- 
+
     function deleteUser(id) {
         var deferred = $q.defer();
         $http.delete(REST_URI+id)
@@ -71,5 +74,5 @@ angular.module('myApp').factory('myService', ['$http', '$q', function($http, $q)
         );
         return deferred.promise;
     }
- 
-}]);
+
+}

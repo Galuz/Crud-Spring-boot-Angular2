@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {myController} from './myController';
+import {myService} from './myService';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app workswedewff!';
+  title = 'app works! German';
 }

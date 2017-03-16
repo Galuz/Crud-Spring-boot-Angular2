@@ -1,10 +1,10 @@
-import { Angular2FrontendPage } from './app.po';
+import { Angular2Page } from './app.po';
 
-describe('angular2-frontend App', () => {
-  let page: Angular2FrontendPage;
+describe('angular2 App', () => {
+  let page: Angular2Page;
 
   beforeEach(() => {
-    page = new Angular2FrontendPage();
+    page = new Angular2Page();
   });
 
   it('should display message saying app works', () => {
