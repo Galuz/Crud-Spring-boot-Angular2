@@ -9,4 +9,5 @@ import {myService} from './myService';
 })
 export class AppComponent {
   title = 'app works! German';
+  constructor(public controller:myController) {}
 }

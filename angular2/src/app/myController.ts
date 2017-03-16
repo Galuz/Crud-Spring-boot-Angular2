@@ -1,10 +1,12 @@
-'use strict';
 import {myService} from './myService';
 import {Component} from 'angular2/core';
 
+@Injectable()
 export class myController {
+  constructor(public service:myService) {}
+
   constructor(){
-    this.user={id:null,name:'',last:''};
+    this.user={id:null, name:'', last:''};
     this.users=[];
     this.submit = submit;
     this.edit = edit;
